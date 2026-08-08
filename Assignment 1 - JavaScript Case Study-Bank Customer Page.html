@@ -1,80 +1,185 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meg Bank - Customer Portal & Certificate</title>
 
-<title>Meg Bank</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f4f7fa;
+        color: #333;
+        margin: 0;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container {
+        background: #fff;
+        max-width: 700px;
+        width: 100%;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    #welcomeBanner {
+        background: linear-gradient(135deg, #0077b6, #0096c7);
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 1.25rem;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    #welcomeBanner:hover {
+        transform: scale(1.02);
+    }
+    #guideBox {
+        background: #eef9ff;
+        border-left: 4px solid #0077b6;
+        padding: 12px 16px;
+        border-radius: 4px;
+        line-height: 1.6;
+        margin: 15px 0;
+    }
+    button {
+        background: #0077b6;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        margin: 5px 4px 5px 0;
+        transition: background 0.2s;
+    }
+    button:hover {
+        background: #023e8a;
+    }
+    input[type="text"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        width: 60%;
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+    #resultMessage {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 6px;
+        display: none;
+        font-weight: 500;
+    }
+    .success { background: #d4edda; color: #155724; display: block !important; }
+    .error { background: #f8d7da; color: #721c24; display: block !important; }
+
+    /* Certificate Styling */
+    .certificate-card {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 2px dashed #e2e8f0;
+        text-align: center;
+    }
+    .cert-preview {
+        max-width: 100%;
+        border-radius: 8px;
+        border: 1px solid #cbd5e1;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .cert-preview:hover {
+        transform: scale(1.02);
+    }
+    .cert-links {
+        margin-top: 10px;
+    }
+    .cert-links a {
+        color: #0077b6;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .cert-links a:hover {
+        text-decoration: underline;
+    }
+</style>
 
 <script type="text/javascript">
-
-function initWelcome()
-{
-    document.getElementById("welcomeBanner").addEventListener("mouseover", notifyUser);
-
-    function notifyUser()
-    {
+function initWelcome() {
+    document.getElementById("welcomeBanner").addEventListener("mouseover", function() {
         alert("Welcome to Meg Bank !!!");
+    });
+}
+
+function showResult(msg, isSuccess) {
+    var res = document.getElementById("resultMessage");
+    res.className = isSuccess ? "success" : "error";
+    res.innerText = msg;
+}
+
+function verifyMember() {
+    var memberID = document.getElementById("accountID").value.trim();
+    if (memberID === "") {
+        showResult("Customer ID can't be blank", false);
+    } else if (memberID.includes("Meg")) {
+        showResult("Customer ID is valid! You can proceed further to generate coupon.", true);
+    } else {
+        showResult("You are not a valid customer.", false);
     }
 }
 
-</script>
-<script>
-function verifyMember()
-{
-    var memberID = document.getElementById("accountID").value;
-    var isEligible = memberID.includes("Meg");
-    if (isEligible)
-    {
-        document.write("Customer ID is valid,you can proceed further to generate coupon");
-    }
-    else if(memberID=="")
-    {
-        document.write("Customer ID can't be blank");
-    }
-    else
-    {
-        document.write("You are not a valid customer");
+function createVoucher() {
+    var memberID = document.getElementById("accountID").value.trim();
+    if (memberID.includes("Meg")) {
+        var offerCode = memberID + "789456";
+        showResult("🎉 Your coupon is: " + offerCode, true);
+    } else {
+        showResult("Invalid customer ID so coupon can't be generated.", false);
     }
 }
-
-function createVoucher()
-{
-    var memberID = document.getElementById("accountID").value;
-    var offerCode = memberID + "789456";
-    var isEligible = memberID.includes("Meg");
-    if (isEligible)
-    {
-        document.write("Your coupon is:" + offerCode);
-    }
-    else
-    {
-        document.write("Invalid customer ID so coupon can't be generated");
-    }
-}
-
 </script>
 </head>
 
 <body onload="initWelcome();">
 
-<p id="welcomeBanner">Welcome customer !!!</p>
-<p id="guideBox">Follow the below Steps to get Diwali coupon:-<br>
-1)Enter your customer ID in the textbox<br>
-2)Click on validate customer button<br>
-3)Click on Register button to hide all the above steps and can apply for coupons<br>
+<div class="container">
+    <div id="welcomeBanner">Welcome customer !!! (Hover over me)</div>
 
-</p>
+    <div id="guideBox">
+        <b>Follow the steps below to get your Diwali coupon:</b><br>
+        1) Enter your Customer ID in the textbox<br>
+        2) Click on <i>Validate customer</i> button<br>
+        3) Click on <i>Register</i> button to hide instructions and apply for coupons
+    </div>
 
-<button type="button" onclick="document.getElementById('guideBox').style.display='none'">Click here to Register</button><br><br><br>
-Enter Customer ID:
-<input id="accountID" type="text" name="customerID"><br><br>
+    <button type="button" onclick="document.getElementById('guideBox').style.display='none'">Click here to Register</button>
+    <br><br>
 
-<button type="button" onclick="verifyMember()">Validate customer</button>
-<button type="button" onclick="createVoucher()">Click here to generate coupon</button>
+    <label for="accountID"><b>Enter Customer ID:</b></label><br>
+    <input id="accountID" type="text" placeholder="e.g. Meg123" name="customerID"><br><br>
 
-<br><br>
-<div id="certificateSection">
-    <p><b>Course Certificate:</b> <a href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:33e3e5c8-9dd4-4301-bd8d-e2b1df2bebae" target="_blank">View Certificate PDF</a></p>
-    <img src="certificate.jpg" alt="Course Completion Certificate - JavaScript Case Study - Bank Customer Page" style="max-width: 650px; width: 100%; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-top: 10px;">
+    <button type="button" onclick="verifyMember()">Validate customer</button>
+    <button type="button" onclick="createVoucher()">Click here to generate coupon</button>
+
+    <div id="resultMessage"></div>
+
+    <!-- Course Certificate Section -->
+    <div class="certificate-card">
+        <h3>🎓 Course Completion Certificate</h3>
+        <p class="cert-links">
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:33e3e5c8-9dd4-4301-bd8d-e2b1df2bebae" target="_blank">📄 View PDF on Adobe Cloud</a> | 
+            <a href="certificate.jpg" target="_blank">🔍 Open High-Res Image</a>
+        </p>
+        <a href="certificate.jpg" target="_blank">
+            <img class="cert-preview" src="certificate.jpg" alt="Infosys Springboard Certificate - Meghna Patel">
+        </a>
+        <p style="font-size: 0.85rem; color: #64748b; margin-top: 8px;">(Click on the certificate image to view full screen)</p>
+    </div>
 </div>
 
 </body>
