@@ -1,4 +1,4 @@
-# Assignment - 4: Git and Version Control System
+# Assignment 4 - Git and GitHub for Developers
 
 ---
 
