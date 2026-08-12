@@ -7,6 +7,22 @@ This document contains the complete collection of Git commands, workflows, inter
 
 ---
 
+## Course Completion Certificate
+
+![Infosys Springboard - Git and GitHub for Developers Certificate](certificate.png)
+
+### Certificate Details
+- **Awarded To:** Meghna Patel
+- **Course Title:** Git and GitHub for Developers
+- **Issuing Organization:** Infosys Springboard (*Infosys Limited*)
+- **Completion Date:** August 8, 2026
+- **Issued Date:** Tuesday, August 11, 2026
+- **Authorized Signatory:** Satheesha B. Nanjappa (*Senior Vice President and Head, Education, Training and Assessment, Infosys Limited*)
+- **Certificate Verification:** [https://verify.onwingspan.com](https://verify.onwingspan.com)
+- **Download Original PDF:** [Certificate - Git and GitHub for Developers.pdf](Certificate%20-%20Git%20and%20GitHub%20for%20Developers.pdf)
+
+---
+
 ## 1. Local Git Repository Lifecycle
 
 ### Commands Workflow
