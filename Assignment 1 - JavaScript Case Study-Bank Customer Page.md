@@ -14,6 +14,7 @@
 - **Issued Date:** Sunday, August 2, 2026
 - **Authorized Signatory:** Satheesha B. Nanjappa (*Senior Vice President and Head, Education, Training and Assessment, Infosys Limited*)
 - **Certificate Verification:** [https://verify.onwingspan.com](https://verify.onwingspan.com)
+- **Adobe Acrobat Certificate Link:** [https://acrobat.adobe.com/id/urn:aaid:sc:AP:33e3e5c8-9dd4-4301-bd8d-e2b1df2bebae](https://acrobat.adobe.com/id/urn:aaid:sc:AP:33e3e5c8-9dd4-4301-bd8d-e2b1df2bebae)
 - **Download Original PDF:** [Certificate - JavaScript Case Study - Bank Customer Page.pdf](Certificate%20-%20JavaScript%20Case%20Study%20-%20Bank%20Customer%20Page.pdf)
 
 ---
