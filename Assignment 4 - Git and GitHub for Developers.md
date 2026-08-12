@@ -17,6 +17,7 @@ This document contains the complete collection of Git commands, workflows, inter
 - **Issued Date:** Tuesday, August 11, 2026
 - **Authorized Signatory:** Satheesha B. Nanjappa (*Senior Vice President and Head, Education, Training and Assessment, Infosys Limited*)
 - **Certificate Verification:** [https://verify.onwingspan.com](https://verify.onwingspan.com)
+- **Adobe Acrobat Certificate Link:** [View Certificate on Adobe Acrobat](https://acrobat.adobe.com/id/urn:aaid:sc:AP:3d484ad9-da2a-4b2e-a0d1-861c582fa876)
 
 ---
 
